@@ -17,6 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTN-tk-vLw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scribble.variable" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ii0-mo-BdN">
                                 <rect key="frame" x="182" y="47.5" width="50" height="49.5"/>
                                 <constraints>
@@ -154,11 +162,15 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zBx-GG-Ll5" secondAttribute="trailing" id="7dS-tc-5h1"/>
                             <constraint firstItem="ii0-mo-BdN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="Giy-Yr-dLs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tTN-tk-vLw" secondAttribute="trailing" id="HoP-qR-Lcn"/>
                             <constraint firstItem="zBx-GG-Ll5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LQ5-H3-RGk"/>
+                            <constraint firstItem="tTN-tk-vLw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M4i-8J-Bvf"/>
                             <constraint firstItem="zBx-GG-Ll5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="86" id="MIF-0d-57T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GyF-WQ-Txo" secondAttribute="trailing" id="PIn-U8-8Uh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tTN-tk-vLw" secondAttribute="bottom" id="RlR-VI-8Dd"/>
                             <constraint firstItem="GyF-WQ-Txo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VOa-Lr-P0k"/>
                             <constraint firstItem="GyF-WQ-Txo" firstAttribute="top" secondItem="ii0-mo-BdN" secondAttribute="bottom" constant="8" id="ZBh-hA-Ktc"/>
+                            <constraint firstItem="tTN-tk-vLw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aKQ-vQ-bif"/>
                             <constraint firstItem="ii0-mo-BdN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fuD-Io-qnQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zBx-GG-Ll5" secondAttribute="bottom" id="yQ5-iE-6ae"/>
                         </constraints>
