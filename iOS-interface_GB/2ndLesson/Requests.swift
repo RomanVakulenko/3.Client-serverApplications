@@ -122,7 +122,7 @@ class WebRequests: UIViewController {
             print("Response --> \(String(describing: response))")
             
             guard let data = data else { return }//переводим данные в строку
-            print("\n\n------------------------------------\n\n")
+            print("\n\n-------------------------------------\n\n")
             print("Body --> \(String(describing: String(data: data, encoding: .utf8)))")
             
         }.resume() // !!! обязательно запускаем задачу
