@@ -46,10 +46,10 @@ class MyFriendsController: UIViewController {
         
         myFriends = fillData()
         sourceFriends = myFriends //8урок. Убрали,тк Storage(singleton)его заместил - в нем теперь хранится
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
-        tableView.dataSource = self
-        tableView.delegate = self
-        searchBar.delegate = self //8урок_так searchBar знает в какой классе будут реализованы методы делегата и будет их вызывать
+        tableView?.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        searchBar?.delegate = self //8урок_так searchBar знает в какой классе будут реализованы методы делегата и будет их вызывать
     }
 }
 //8урок когда загружается MyFriendsController оба массива имеют одинаковое наполнение, дальше мы фильтруем из sourceFriends, формируя myFriends и обновляя табличку

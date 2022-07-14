@@ -12,11 +12,11 @@ class Session {
     
     static let sharedInstance = Session() //чтобы получить доступность извне. Когда МП запускается, то происходит обход статичных полей и присваивание им значений - так ему ставится 1 значение и мы можем всегда пользоваться полями с данными
     
-    var userToken: String = "vk1.a.WBhaJ7L4PinDEzlvK0BlvyhqyfmEeEG9UfmTLJa7DVWkI3sLJ71722EdwboCTXTsGegtj2LSeBKWR93hMb_jgobjiPXh6vJygQP4UAkB8uPDTCwp2_YcZcNrb9Mn8IBxT_O66rfkBo8YH_gyBxfDc66arm6OZd-xNRdaoA25Uty2gi9Kjg-oYZmSivE4Fy1e"// поля с данными - задаем значения по умолчанию и
-    var userId: Int = 2906698 // и , когда нужно будет записать:
+    var userToken: String? = "vk1.a.WBhaJ7L4PinDEzlvK0BlvyhqyfmEeEG9UfmTLJa7DVWkI3sLJ71722EdwboCTXTsGegtj2LSeBKWR93hMb_jgobjiPXh6vJygQP4UAkB8uPDTCwp2_YcZcNrb9Mn8IBxT_O66rfkBo8YH_gyBxfDc66arm6OZd-xNRdaoA25Uty2gi9Kjg-oYZmSivE4Fy1e"// поля с данными - задаем значения по умолчанию и
+    var userId: Int? = 2906698 // и, когда нужно будет записать в них что-то далее в проекте, то :
 }
 
-// обращаемся из другого класса так:
+// обращаемся к переменным из другого класса так:
 //Session.sharedInstance.userId = "can write some value"
 //print(Session.sharedInstance.userToken) //либо распечатать
 
