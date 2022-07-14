@@ -69,12 +69,13 @@ extension LoginViewController: WKNavigationDelegate {
         
         guard let token = params["access_token"] else { return }
         print(token) //1ч после того как получили токен надо сделать перенаправление на какой-то экран
-        //чтобы совершить переход - вписать Storyboard ID вверхусправа в настройках у таббарконтроллера,
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) //создать UIStoryboard
-        guard let secondVC = storyboard.instantiateViewController(withIdentifier:"TabBarController") as? UITabBarController else { return } // получить контроллер по идентификатору
-        navigationController?.pushViewController(secondVC, animated: true)//показать в UINavigationController
+//чтобы совершить переход - вписать Storyboard ID вверхусправа в настройках у таббарконтроллера,ниже указан переход на контроллер созданный в сториборде
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil) //создать UIStoryboard
+//        guard let secondVC = storyboard.instantiateViewController(withIdentifier:"TabBarController") as? UITabBarController else { return } // получить контроллер по идентификатору
+//        navigationController?.pushViewController(secondVC, animated: true)//показать в UINavigationController
 
+        navigationController?.pushViewController(WebRequests(), animated: true)//показать в UINavigationController
+        >
     }
 }
 
