@@ -2,27 +2,23 @@
 //  Requests.swift
 //  2ndLesson
 //
-//  Created by Roman Vakulenko on 14.07.2022.
+//  Created by Roman Vakulenko on 15.07.2022.
 //
 
 import Foundation
-import UIKit
+import WebKit
 
-class WebRequests: UIViewController {
+class Requests {
+    //создал свойства класса (хранимые свойства) - тем самым их инициализировав
+    var urlComponents1 = URLComponents(string: "https://api.vk.com/method/friends.addList")
+    var urlComponents2 = URLComponents(string: "https://api.vk.com/method/friends.get")
+    var urlComponents3 = URLComponents(string: "https://api.vk.com/method/users.get")
+    var urlComponents4 = URLComponents(string: "https://api.vk.com/method/groups.get")
+    var urlComponents5 = URLComponents(string: "https://api.vk.com/method/groups.search")
     
-    override func viewDidLoad () {
-        
-        super.viewDidLoad()
-        requestFriendsAddList()
-        requestFriendsGet()
-        requestUsersGet()
-        requestGroupsGet()
-        requestGroupsSearch()
-    }
-    
-
+    //создал методы запросов, которые используют свойства класса
     func requestFriendsAddList() {
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/friends.addList")// чтобы обратиться к методу API ВКонтакте, чтобы не заполнять все эти поля руками, можно подставить часть как строку и добавить недостающ:
+        var urlComponents = urlComponents1// чтобы обратиться к методу API ВКонтакте, чтобы не заполнять все эти поля руками, можно подставить часть как строку и добавить недостающ:
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "ListOfFriends", value: "new list"),
@@ -43,7 +39,7 @@ class WebRequests: UIViewController {
     
     
     func requestFriendsGet() { // Возвращает список идентификаторов моих друзей и nickname и photo_50
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/friends.get")
+        var urlComponents = urlComponents2
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "fields", value: "nickname, photo_50"),
@@ -64,7 +60,7 @@ class WebRequests: UIViewController {
     
     
     func requestUsersGet() { //Возвращает расширенную информацию о пользователях
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/users.get")
+        var urlComponents = urlComponents3
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "user_ids", value: "1972901"),
@@ -86,7 +82,7 @@ class WebRequests: UIViewController {
     
     
     func requestGroupsGet() { //Возвращает список сообществ указанного пользователя.
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/groups.get")
+        var urlComponents = urlComponents4
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "user_id", value: "1972901"),
@@ -107,7 +103,7 @@ class WebRequests: UIViewController {
     }
     
     func requestGroupsSearch() { //Осуществляет поиск сообществ по заданной подстроке.
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/groups.search")
+        var urlComponents = urlComponents5
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "q", value: "iOS"),
@@ -128,5 +124,3 @@ class WebRequests: UIViewController {
         }.resume() // !!! обязательно запускаем задачу
     }
 }
-
-

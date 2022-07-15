@@ -74,7 +74,7 @@ extension LoginViewController: WKNavigationDelegate {
         navigationController?.pushViewController(secondVC, animated: true)//показать в UINavigationController
 */
 //так мы делаем переход на контроллер, который создали кодом:
-        navigationController?.pushViewController(WebRequests(), animated: true)//показать в UINavigationController
+        navigationController?.pushViewController(SecondViewShowingTheResultOfWebRequests(), animated: true)//показать в UINavigationController
     }
 }
 
