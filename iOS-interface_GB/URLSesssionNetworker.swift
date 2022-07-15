@@ -9,7 +9,7 @@ import Foundation
 //3.2 25m
 class URLSessionNetworker {
     init(
-        urlSesstion: URLSession = .shared // 25м URLSession - это синглтон и можно отовсюду к ней обратиться: URLSession.shared....
+        urlSesstion: URLSession = .shared // 25м URLSession - это система отправки и получения запросов, это синглтон и можно отовсюду к ней обратиться: URLSession.shared....(стандартная библиотека для сетевых запросов на основе задач в рамках одной(желательно) сессии)
     ) {
         self.urlSesstion = urlSesstion
     }
@@ -21,7 +21,7 @@ class URLSessionNetworker {
     ) { //обратимся к URLSession и создадим задачу - dataTask (уже настроенный запрос - по умолчанию запрос GET, если обращаемся к URL), дается замыкание (3опциональных поля: данные, ответ сервера и ошибка)
         let task = urlSesstion.dataTask(with: url) { data, response, error in
             print("Error --> \(String(describing: error))")
-            print("\n\n------------------------------------\n\n")
+            print("\n\n-------------------------------------\n\n")
             print("Response --> \(String(describing: response))")
 
                 guard let data = data else { return }//разворачиваем наши данные (тк они опционал)
@@ -36,9 +36,10 @@ class URLSessionNetworker {
             }
         task.resume() // !!! обязательно запускаем задачу
     }
-   
-    
-// URL можно создать многими способами, простой:
+}
+
+/*
+// как создать URL:
     func createUrl() -> URL? {
         var urlComponents = URLComponents(string: "https://api.vk.com/method/users.get")
         
@@ -51,28 +52,28 @@ class URLSessionNetworker {
     }
 
 
-//3.2 29mдля отправки данных на сервер применяется метод POST
-//    func sendPostRequest() {
-//        var urlConstructor = URLComponents()// создаем конструктор для url
-//        urlConstructor.scheme = "http"
-//        urlConstructor.host = "jsonplaceholder.typicode.com"
-//        urlConstructor.path = "/posts"
-//        urlConstructor.queryItems = [
-//            URLQueryItem(name: "title", value: "foo"),
-//            URLQueryItem(name: "body", value: "bar"),
-//            URLQueryItem(name: "userId", value: "1")
-//        ]
-//
-//        guard let url = urlConstructor.url else { return }
-//        var urlRequest = URLRequest(url: url) //создаем запрос (принимает в себя URL)
-//        urlRequest.httpMethod = "POST" // и позволяет нам указать метод запроса
-//
-//        urlSesstion.dataTask(with: urlRequest) { data, _, _ in //обратимся к URLSession и создадим задачу - dataTask, дается замыкание (3опциональных поля: данные, ответ сервера и ошибка), если параметр не используем, то _ (например, мы знаем, что будет какая-то ошибка ее мы выведем юзеру на экран - тогда да, иначе просто _)
-//            guard let data = data else { return }
-//            let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-//
-//            print(json)
-//        }.resume() //можно и не создавать  константу task - так тоже пишут(кодСтайл)
-//    }
-}
+//3.2 29mдля отправки данных на сервер применяется метод POST:
+    func sendPostRequest() {
+        var urlConstructor = URLComponents()// создаем конструктор для url
+        urlConstructor.scheme = "http"
+        urlConstructor.host = "jsonplaceholder.typicode.com"
+        urlConstructor.path = "/posts"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "title", value: "foo"),
+            URLQueryItem(name: "body", value: "bar"),
+            URLQueryItem(name: "userId", value: "1")
+        ]
 
+        guard let url = urlConstructor.url else { return }
+        var urlRequest = URLRequest(url: url) //создаем запрос (принимает в себя URL)
+        urlRequest.httpMethod = "POST" // и позволяет нам указать метод запроса
+
+        urlSesstion.dataTask(with: urlRequest) { data, _, _ in //обратимся к URLSession и создадим задачу - dataTask, дается замыкание (3опциональных поля: данные, ответ сервера и ошибка), если параметр не используем, то _ (например, мы знаем, что будет какая-то ошибка ее мы выведем юзеру на экран - тогда да, иначе просто _)
+            guard let data = data else { return }
+            let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+
+            print(json)
+        }.resume() //можно и не создавать  константу task - так тоже пишут(кодСтайл)
+    }
+}
+*/

@@ -11,8 +11,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView! {//3.2.
         didSet { webView.navigationDelegate = self } // установим webView в качестве делегата контроллера
     }
-    
-    
     //    let toTabBarController = "toTabBarController" //делать константу не строкой, чтобы если дальше ошибемся, то Xcode нам подскажет где ошиблись, а в строке в кавычках он не распознает опечатку
     
     override func viewDidLoad() {
@@ -38,14 +36,14 @@ class LoginViewController: UIViewController {
     }
 }
 
-//3.2.логика. Имплементируем делегат WKNavigationDelegate контроллеру и реализуем метод, который перехватывает ответы сервера при переходе: func webView
+//3.2.логика. Имплементируем делегат WKNavigationDelegate контроллеру и реализуем метод, который перехватывает ответы сервера при переходе - func webView
 extension LoginViewController: WKNavigationDelegate {
-    func webView(// используем метод, кот. работает с навигацией
+    func webView(// тк мы подписались на WKWebView, то используем метод, кот. работает с навигацией
         _ webView: WKWebView,
         decidePolicyFor navigationResponse: WKNavigationResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
-        decisionHandler(.allow)//хендлер должен вызываться 1 раз (метод, с помощью кот.делаемПереход между страницами)
+        decisionHandler(.allow)//хендлер долж ен вызываться 1 раз (метод, с помощью кот.делаемПереход между страницами)
         guard let url = navigationResponse.response.url,// проверяет URL, на который было совершено перенаправление,
               url.path == "/blank.html",// если это нужный нам URL (/blank.html), и в нем есть токен, приступим к его обработке
               let fragment = url.fragment //45м и после чего собираем фрагменты строки
@@ -69,11 +67,13 @@ extension LoginViewController: WKNavigationDelegate {
         
         guard let token = params["access_token"] else { return }
         print(token) //1ч после того как получили токен надо сделать перенаправление на какой-то экран
+/*
 //чтобы совершить переход - вписать Storyboard ID вверхусправа в настройках у таббарконтроллера,ниже указан переход на контроллер созданный в сториборде
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil) //создать UIStoryboard
-//        guard let secondVC = storyboard.instantiateViewController(withIdentifier:"TabBarController") as? UITabBarController else { return } // получить контроллер по идентификатору
-//        navigationController?.pushViewController(secondVC, animated: true)//показать в UINavigationController
-
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) //создать UIStoryboard
+        guard let secondVC = storyboard.instantiateViewController(withIdentifier:"TabBarController") as? UITabBarController else { return } // получить контроллер по идентификатору
+        navigationController?.pushViewController(secondVC, animated: true)//показать в UINavigationController
+*/
+//так мы делаем переход на контроллер, который создали кодом:
         navigationController?.pushViewController(WebRequests(), animated: true)//показать в UINavigationController
     }
 }
