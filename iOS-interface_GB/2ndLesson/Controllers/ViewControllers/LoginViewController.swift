@@ -8,10 +8,7 @@ import WebKit
 //3.2 прохождение авторизации
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var webView: WKWebView! {//3.2.
-        didSet { webView.navigationDelegate = self } // установим webView в качестве делегата контроллера
-    }
-    //    let toTabBarController = "toTabBarController" //делать константу не строкой, чтобы если дальше ошибемся, то Xcode нам подскажет где ошиблись, а в строке в кавычках он не распознает опечатку
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

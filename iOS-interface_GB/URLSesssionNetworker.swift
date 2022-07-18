@@ -18,7 +18,7 @@ class URLSessionNetworker {
     
     func request(
         with url: URL
-    ) { //обратимся к URLSession и создадим задачу - dataTask (уже настроенный запрос - по умолчанию запрос GET, если обращаемся к URL), дается замыкание (3опциональных поля: данные, ответ сервера и ошибка)
+    ) { //обратимся к URLSession и создадим задачу - dataTask (уже настроенный запрос - по умолчанию запрос GET), дается замыкание (3 опциональных поля: данные, ответ сервера и ошибка)
         let task = urlSesstion.dataTask(with: url) { data, response, error in
             print("Error --> \(String(describing: error))")
             print("\n\n-------------------------------------\n\n")
