@@ -10,15 +10,15 @@ import WebKit
 
 class Requests {
     //создал свойства класса (хранимые свойства) - тем самым их инициализировав
-    var urlComponents1 = URLComponents(string: "https://api.vk.com/method/friends.addList")
-    var urlComponents2 = URLComponents(string: "https://api.vk.com/method/friends.get")
-    var urlComponents3 = URLComponents(string: "https://api.vk.com/method/users.get")
-    var urlComponents4 = URLComponents(string: "https://api.vk.com/method/groups.get")
-    var urlComponents5 = URLComponents(string: "https://api.vk.com/method/groups.search")
+    var partUrlFriendsAddList = URLComponents(string: "https://api.vk.com/method/friends.addList")
+    var partUrlFriendsGet = URLComponents(string: "https://api.vk.com/method/friends.get")
+    var partUrlUsersGet = URLComponents(string: "https://api.vk.com/method/users.get")
+    var partUrlGroupsGet = URLComponents(string: "https://api.vk.com/method/groups.get")
+    var partUrlGroupsSearch = URLComponents(string: "https://api.vk.com/method/groups.search")
     
     //создал методы запросов, которые используют свойства класса
     func requestFriendsAddList() {
-        var urlComponents = urlComponents1// чтобы обратиться к методу API ВКонтакте, чтобы не заполнять все эти поля руками, можно подставить часть как строку и добавить недостающ:
+        var urlComponents = partUrlFriendsAddList// чтобы обратиться к методу API ВКонтакте, чтобы не заполнять все эти поля руками, можно подставить часть как строку и добавить недостающ:
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "ListOfFriends", value: "new list"),
@@ -39,7 +39,7 @@ class Requests {
     
     
     func requestFriendsGet() { // Возвращает список идентификаторов моих друзей и nickname и photo_50
-        var urlComponents = urlComponents2
+        var urlComponents = partUrlFriendsGet
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "fields", value: "nickname, photo_50"),
@@ -60,7 +60,7 @@ class Requests {
     
     
     func requestUsersGet() { //Возвращает расширенную информацию о пользователях
-        var urlComponents = urlComponents3
+        var urlComponents = partUrlUsersGet
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "user_ids", value: "1972901"),
@@ -82,7 +82,7 @@ class Requests {
     
     
     func requestGroupsGet() { //Возвращает список сообществ указанного пользователя.
-        var urlComponents = urlComponents4
+        var urlComponents = partUrlGroupsGet
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "user_id", value: "1972901"),
@@ -103,7 +103,7 @@ class Requests {
     }
     
     func requestGroupsSearch() { //Осуществляет поиск сообществ по заданной подстроке.
-        var urlComponents = urlComponents5
+        var urlComponents = partUrlGroupsSearch
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.sharedInstance.userToken),
             URLQueryItem(name: "q", value: "iOS"),
