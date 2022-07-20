@@ -37,19 +37,18 @@ class MyFriendsController: UIViewController {
         return friendsArray
     }
     
-    var sourceFriends = [Friend]()//исходный массив для сёрч поиска. 8L1h51mУбрали,тк Storage(singleton)его заместил - в нем теперь хранится
+    var sourceFriends = [Friend]()//исходный массив для сёрч поиска.
     var myFriends = [Friend]() //для сёрч поиска - отфильтрованный массив
     let customTableViewCellReuseIdentifier = "customTableViewCellReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         myFriends = fillData()
-        sourceFriends = myFriends //8урок. Убрали,тк Storage(singleton)его заместил - в нем теперь хранится
+        sourceFriends = myFriends
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        searchBar.delegate = self //8урок_так searchBar знает в какой классе будут реализованы методы делегата и будет их вызывать
+        searchBar.delegate = self //8урок_так searchBar знает в каком классе будут реализованы методы делегата и будет их вызывать
     }
 }
 //8урок когда загружается MyFriendsController оба массива имеют одинаковое наполнение, дальше мы фильтруем из sourceFriends, формируя myFriends и обновляя табличку
@@ -76,10 +75,10 @@ extension MyFriendsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellReuseIdentifier, for: indexPath) as? CustomTableViewCell else {return UITableViewCell()}
         
-        let friend = myFriends[indexPath.row] //выбор друга по индексу из массива друзей
+        let friend = myFriends[indexPath.row] //выбор друга по индексу из массива друзей для ячейки
         cell.configure(image: UIImage(named: friend.avatar ?? ""), name: friend.name, description: friend.age, closure: { [weak self] in
             guard let self = self else {return}
-            self.performSegue(withIdentifier: self.fromFriendListToGallarySegue, sender: indexPath.row)
+            self.performSegue(withIdentifier: self.fromFriendListToGallarySegue, sender: friend) // передавать фотки будем через друга
         }) //8L.2.32m сама ячейка будет считывать нажатия и по окончанию анимации в комплишн мы дернем переход
         return cell
     }
@@ -93,9 +92,8 @@ extension MyFriendsController: UITableViewDelegate {
         super.prepare(for: segue, sender: sender) //если оверрайд, то всегда используем суперметод
         if segue.identifier == fromFriendListToGallarySegue,   //если id совпадает, то проверяем дальше
            let destinationController = segue.destination as? GallaryViewController,//если целевой контроллер нужного класса(т.е. нужный контроллер)
-           let fotos = sender as? [MyFoto] { //указывая sender as? мы убираем опционал; и тк мы знаем что цлевой VC - это GallaryViewController. тогда можем добраться до его свойства: destinationController (св-во fotoAlbum прописали в GallaryViewController) //8L1h22m вместо String вставили MyFoto (передаем делегатом нажатие и счетчик)
-            destinationController.fotoAlbum = fotos //8L1h54m
-            //            let fotoArrayIndex = sender as? Int { //8L1h54m
+           let friend = sender as? Friend { //указывая as? мы убираем опционал; и тк мы знаем что целевой VC - это GallaryViewController, тогда можем добраться до его свойства (св-во fotoAlbum прописали в GallaryViewController)
+            destinationController.fotoAlbum = friend.fotoAlbum//
         }
     }
     
@@ -121,6 +119,7 @@ extension MyFriendsController: UITableViewDelegate {
  }
  }
  */
+
 
 
 
