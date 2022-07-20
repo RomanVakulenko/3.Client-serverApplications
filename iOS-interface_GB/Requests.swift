@@ -74,6 +74,7 @@ class Requests {
         ]
         guard let urlUserGroupsData = urlComponents?.url else { return }//создаем url из компонентов
         
+        
         URLSession.shared.dataTask(with: urlUserGroupsData) { data, _, _ in
             guard let data = data else { return }
             do {
