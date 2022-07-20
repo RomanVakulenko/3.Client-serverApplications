@@ -12,7 +12,7 @@ class Session {
     
     static let sharedInstance = Session() //чтобы получить доступность извне. Когда МП запускается, то происходит обход статичных полей и присваивание им значений - так ему ставится 1 значение и мы можем всегда пользоваться полями с данными
     
-    var userToken: String? = "vk1.a.YOMnJnoQRMmaI-yqFYAdNVAGb8jdqAoe6TWPs5DhNVicw_okY4Q7Lzid4FUpobsTWhu3l57PwBTqMvdjZsr4BRxmW2uINk3vG1REYGpVSdlHtk3K3tbwDW1hDt0SKuhdaq66PGh_WxsDH2FVBoLhVo8_zV28W842Af4T4VSRhZNzx9TyV6mfrvLQg2GSY4D3"// поля с данными - задаем значения по умолчанию и
+    var userToken: String? = "vk1.a.G5dMKRNkbJZztGzwX5rO30K6svZXf6gvONK3C89Xo0VKa38tUBqntWsFlD7qyd02HxCJWJ23pnH97ITavPTabH9XaMLmmhXbyDXFHc7ecGJfGTqoEjmza6qj3z67MiGkKP8Y9S2IPLbC-RNxjL-UqmHFyoHkU49KkjzDoUIjbBN-cuLCPNttx79mTil70Li3"// поля с данными - задаем значения по умолчанию и
     var userId: Int? = 2906698 // и, когда нужно будет записать в них что-то далее в проекте, то :
 }
 

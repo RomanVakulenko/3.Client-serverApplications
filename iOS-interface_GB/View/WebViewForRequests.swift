@@ -9,18 +9,18 @@ import Foundation
 import UIKit
 
 class SecondViewShowingTheResultOfWebRequests: UIViewController {
-
-//создадим экземпляр класса, чтобы когда экран 2ого ВьюК загрузится вызвать его методы - ниже
-var requests = Requests()
+    
+    //создадим экземпляр класса, чтобы когда экран 2ого ВьюК загрузится вызвать его методы - ниже
+    var requests = Requests()
     
     override func viewDidLoad () {
         super.viewDidLoad()
         
-        requests.requestFriendsAddList()
+//        requests.requestFriendsAddList()
         requests.requestFriendsGet()
-        requests.requestUsersGet()
-        requests.requestGroupsGet()
-        requests.requestGroupsSearch()
+//        requests.requestUsersGet()
+//        requests.requestGroupsGet()
+//        requests.requestGroupsSearch()
     }
 }
 
