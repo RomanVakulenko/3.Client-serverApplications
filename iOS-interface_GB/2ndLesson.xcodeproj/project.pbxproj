@@ -33,7 +33,7 @@
 		AD982F2D2886886900CCAF86 /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD982F2C2886886900CCAF86 /* JsonDecoder.swift */; };
 		AD982F3028869E8600CCAF86 /* UsersGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD982F2F28869E8600CCAF86 /* UsersGet.swift */; };
 		AD982F3228869F9500CCAF86 /* FriendsGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD982F3128869F9500CCAF86 /* FriendsGet.swift */; };
-		AD982F342886C3A000CCAF86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD982F332886C3A000CCAF86 /* User.swift */; };
+		AD982F362888737F00CCAF86 /* GroupsGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD982F352888737F00CCAF86 /* GroupsGet.swift */; };
 		ADAC993D286D87A9000FC8A8 /* FullScreenFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */; };
 		ADAC993F286D96F9000FC8A8 /* FotoHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */; };
 		ADAC9941286D9704000FC8A8 /* FotoHorizontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */; };
@@ -75,7 +75,7 @@
 		AD982F2C2886886900CCAF86 /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
 		AD982F2F28869E8600CCAF86 /* UsersGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersGet.swift; sourceTree = "<group>"; };
 		AD982F3128869F9500CCAF86 /* FriendsGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsGet.swift; sourceTree = "<group>"; };
-		AD982F332886C3A000CCAF86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AD982F352888737F00CCAF86 /* GroupsGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsGet.swift; sourceTree = "<group>"; };
 		ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullScreenFotoViewController.swift; path = 2ndLesson/Controllers/view/FullScreenFotoViewController.swift; sourceTree = SOURCE_ROOT; };
 		ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FotoHorizontalView.swift; path = 2ndLesson/Controllers/ViewControllers/FotoHorizontalView.swift; sourceTree = SOURCE_ROOT; };
 		ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FotoHorizontalView.xib; sourceTree = "<group>"; };
@@ -203,12 +203,12 @@
 		ADC5B84B284FA11D00BD95FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AD982F332886C3A000CCAF86 /* User.swift */,
 				AD982F2F28869E8600CCAF86 /* UsersGet.swift */,
 				AD982F3128869F9500CCAF86 /* FriendsGet.swift */,
 				ADC5B84C284FA15500BD95FD /* Friend.swift */,
 				AD1F2BC42864350E00A681AD /* Foto.swift */,
 				AD0EE3D9285A283D0051E931 /* Group.swift */,
+				AD982F352888737F00CCAF86 /* GroupsGet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,12 +302,12 @@
 				AD59DC812840BC90007A8C82 /* LoginViewController.swift in Sources */,
 				AD11067E284A49AB000BEFF7 /* AllGroupController.swift in Sources */,
 				AD110680284A4A87000BEFF7 /* MyFriendsController.swift in Sources */,
+				AD982F362888737F00CCAF86 /* GroupsGet.swift in Sources */,
 				AD0EE3DA285A283D0051E931 /* Group.swift in Sources */,
 				AD894416287480FF003FBBE5 /* CustomNavigationController.swift in Sources */,
 				AD0EE3D8285A24C90051E931 /* MyGroupViewController.swift in Sources */,
 				AD982F3228869F9500CCAF86 /* FriendsGet.swift in Sources */,
 				AD1F2BC52864350E00A681AD /* Foto.swift in Sources */,
-				AD982F342886C3A000CCAF86 /* User.swift in Sources */,
 				AD0EE3C62859DCB60051E931 /* Resources.swift in Sources */,
 				AD97226428814DCF002EAB83 /* Requests.swift in Sources */,
 				ADACCEB2285C6C9900F4451A /* LikeControlView.swift in Sources */,

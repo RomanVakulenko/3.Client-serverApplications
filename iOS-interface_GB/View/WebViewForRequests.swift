@@ -16,11 +16,9 @@ class SecondViewShowingTheResultOfWebRequests: UIViewController {
     override func viewDidLoad () {
         super.viewDidLoad()
         
-//        requests.requestFriendsAddList()
-        requests.requestFriendsGet()
-//        requests.requestUsersGet()
-//        requests.requestGroupsGet()
-//        requests.requestGroupsSearch()
+        requests.getFriendsDataAndParseIt()
+        requests.getUsersDataAndParseIt()
+        requests.getUserGroupsDataAndParseIt()
     }
 }
 
